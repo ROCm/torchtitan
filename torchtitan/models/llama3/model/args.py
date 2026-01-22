@@ -43,7 +43,7 @@ class TransformerModelArgs(BaseModelArgs):
     # `False`, each uses the total number of transformer blocks
     depth_init: bool = True
 
-    use_flex_attn: bool = False
+    use_flex_attn: bool = True
     attn_mask_type: str = "causal"
     eos_id: int = 0
 

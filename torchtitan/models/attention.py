@@ -63,9 +63,10 @@ class FlexAttentionWrapper(torch.nn.Module):
         # 2. `self._compiled_flex_attn` is not correct, `self` will be passed in
         #    as the first argument, which will cause an error.
         #    `FlexAttentionWrapper._compiled_flex_attn` is correct.
-        return FlexAttentionWrapper._compiled_flex_attn(
-            q, k, v, block_mask=block_mask, scale=scale
-        )
+        #return FlexAttentionWrapper._compiled_flex_attn(
+            #q, k, v, block_mask=block_mask, scale=scale
+        #)
+        return flex_attention(q, k, v, block_mask=block_mask, scale=scale)
 
 
 class ScaledDotProductAttentionWrapper(torch.nn.Module):

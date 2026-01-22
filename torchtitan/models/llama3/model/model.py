@@ -193,8 +193,10 @@ class Attention(nn.Module):
 
         self.use_flex_attn = model_args.use_flex_attn
         if self.use_flex_attn:
+            print('Use Flex Attention.')
             self.inner_attention = FlexAttentionWrapper()
         else:
+            print('Use SDPA.')
             self.inner_attention = ScaledDotProductAttentionWrapper()
 
     def init_weights(self, init_std: float):
